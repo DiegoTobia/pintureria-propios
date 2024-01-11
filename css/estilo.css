@@ -25,17 +25,41 @@ header {
     display: flex;
     flex-wrap: wrap;
     /* nowrap / wrap / wrap-reverse */
-    justify-content: space-between;
+    justify-content: space-between !important;
     align-items: center;
-    padding: 2rem 3rem;
+    padding: 1rem 2rem;
+    font-size: large;
+    margin: 0rem;
+}
+
+.encabezado {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    /* nowrap / wrap / wrap-reverse */
+    justify-content: space-between !important;
+    padding: 0rem 0rem;
+    margin: 0rem;
+    gap:1rem;
+}
+
+.cabeza{
+    display: flex;
+    flex-wrap: wrap;
+    /* nowrap / wrap / wrap-reverse */
+    justify-content: space-between !important;
+    align-items: center;
+    padding: 0rem 2rem;
 }
 
 .logo-empresa {
     display: flex;
     gap: 0.2rem;
     justify-content: center;
-    padding-bottom: 0.5
-    rem;   
+    padding-bottom: 0.5 rem;   
+}
+
+.logo-tit{
+    display: inline;
 }
 
 .icon-empresa{
@@ -52,6 +76,34 @@ header {
 }
 
 
+
+@media (max-width:770px){
+    .menu{
+        display: block;
+        gap: 0rem;
+        padding: 0rem;
+        
+    }
+    .nav{
+        background-color: #082c4e;
+        color: white;
+        display: flex;
+        flex-wrap: wrap;
+        /* nowrap / wrap / wrap-reverse */
+        justify-content: space-between !important;
+        align-items: center;
+        padding: 1rem 2rem;
+        font-size: large;
+        margin: 0rem;
+        gap: 0rem;
+    }
+
+    .cabeza{
+        display: block;
+    }
+}
+
+
 body{
     background-color: rgba(233, 148, 21, 0.541);
 }
@@ -59,6 +111,12 @@ body{
 /*---------------main-----------------------*/
 .main{
     padding: 2rem 1rem;
+}
+
+.contenedor{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-inline: 1.5rem;
 }
 
 .h1-nombre{
@@ -253,17 +311,40 @@ body{
 }
 
 
+@media (max-width:575px){
+    .t-achicar{
+        font-size: 1rem;
+        
+    }
+
+    .imgs-productos{
+        width: 10rem;
+    }
+}
+
+
 /*---------------footer---------------------*/
 
 .footer {
     background-color: #252525;
     color: white;
     padding: 1rem 1rem;
-    display: flex;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+
     gap: 1rem;
     justify-content: space-between;
     align-items: start;
     flex-wrap: wrap;
+}
+
+@media (max-width:575px){
+    .footer {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
 }
 
 .footer-1 {
@@ -304,3 +385,9 @@ body{
 .img-pagar{
     width: 12rem;
 }
+
+
+
+
+
+
