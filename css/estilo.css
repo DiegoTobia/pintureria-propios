@@ -1,0 +1,306 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+/*---------------header---------------------*/
+
+header {
+    background-color: #082c4e;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    /* nowrap / wrap / wrap-reverse */
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem;
+}
+
+.logo-empresa {
+    display: flex;
+    gap: 0.2rem;
+    justify-content: center;
+    padding-bottom: 0.5
+    rem;   
+}
+
+.icon-empresa{
+    font-size: 1.7rem;
+}
+/*.img-empresa{
+    width: 2rem;
+}*/
+
+.menu {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 1rem;
+}
+
+
+body{
+    background-color: rgba(233, 148, 21, 0.541);
+}
+
+/*---------------main-----------------------*/
+.main{
+    padding: 2rem 1rem;
+}
+
+.h1-nombre{
+    text-align: center;
+    padding: 1rem;
+    font-weight: 1000;
+    font-size: 2rem;
+}
+
+.formulario{
+    padding: 1rem;
+    
+}
+
+.div-formulario{
+    padding: 1rem;
+}
+
+.input {
+    width: 100%;
+}
+.input-n{
+    width: 70%;
+}
+
+/*form{
+    margin: auto;
+}*/
+
+.h2-pin-art{
+    padding: 1rem;
+}
+.ciego{
+    color: rgba(233, 148, 21, 0);
+}
+
+.ordenar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.formato-pin-art{
+    display: flex;
+    justify-content: space-between;
+}
+
+.prod-destacados{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    gap: 1rem;
+    padding: 0rem 1rem;
+    background-color: white;
+    border-radius: 2rem;
+}
+
+.prod-ilustres{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    gap: 2rem;
+    padding: 4rem 1rem;
+}
+
+.prod-ventas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 1rem;
+    padding: 1rem 1rem;
+    background-color: white;
+    border-radius: 2rem;
+}
+
+.imgs-productos{
+    width: 10rem;
+}
+
+.categ-destacadas{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color:rgba(33, 100, 145, 0.541);
+}
+
+.imgs-madera{
+    width: 45%;
+    /*height: 20vh;*/
+    aspect-ratio: 3/2;
+
+    background-image: url("../img/i_madera.png");
+
+    background-size: cover;
+    flex:20rem 40rem;
+
+    border-radius: 1rem;
+
+    /*color: white;*/
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    font-weight: 1000;
+    font-size: 2rem;
+}
+
+.imgs-metales{
+    width: 45%;
+    /*height: 20vh;*/
+    aspect-ratio: 3/2;
+
+    background-image: url("../img/i_metales.png");
+
+    background-size: cover;
+    flex:20rem 40rem;
+
+    border-radius: 1rem;
+
+    /*color: white;*/
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    font-weight: 1000;
+    font-size: 2rem;
+}
+
+.imgs-accesorios{
+    width: 45%;
+    /*height: 20vh;*/
+    aspect-ratio: 3/2;
+
+    background-image: url("../img/i_accesorios.png");
+
+    background-size: cover;
+    flex:20rem 40rem;
+
+    border-radius: 1rem;
+
+    /*color: white;*/
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    font-weight: 1000;
+    font-size: 2rem;
+}
+
+.imgs-decorado{
+    width: 45%;
+    /*height: 20vh;*/
+    aspect-ratio: 3/2;
+
+    background-image: url("../img/i_decorado.png");
+
+    background-size: cover;
+    flex:20rem 40rem;
+
+    border-radius: 1rem;
+
+    /*color: white;*/
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    font-weight: 1000;
+    font-size: 2rem;
+}
+
+.radio{
+    padding: 0%;
+    border-radius: 3rem;
+}
+
+.t-prod{
+    text-align: center;
+    
+    color: black;
+}
+
+.precio{
+    color: rgb(0, 110, 255);
+    font-weight: 800;
+}
+
+.h2-sucursales{
+    text-decoration: underline;
+}
+.flex-sucursales{
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+}
+
+
+/*---------------footer---------------------*/
+
+.footer {
+    background-color: #252525;
+    color: white;
+    padding: 1rem 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: wrap;
+}
+
+.footer-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.footer-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.format-link{
+    color: white;
+}
+
+.footer-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.icon-red-social{
+    font-size: 1.1rem;
+    font-family: sans-serif;
+    font-style: normal;
+}
+
+.pad_button{
+    padding: 1rem 0rem;
+}
+
+.img-pagar{
+    width: 12rem;
+}
