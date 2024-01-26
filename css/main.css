@@ -1,0 +1,396 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: rgba(233, 148, 21, 0.541);
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+header {
+  background-color: #082c4e;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  /* nowrap / wrap / wrap-reverse */
+  justify-content: space-between !important;
+  align-items: center;
+  padding: 1rem 2rem;
+  font-size: large;
+  margin: 0rem;
+}
+header .encabezado {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  /* nowrap / wrap / wrap-reverse */
+  justify-content: space-between !important;
+  padding: 0rem 0rem;
+  margin: 0rem;
+  gap: 1rem;
+}
+header .encabezado .encabezado_abajo {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  /* nowrap / wrap / wrap-reverse */
+  justify-content: space-between !important;
+  padding: 0rem 0rem;
+  margin: 0rem;
+  gap: 1rem;
+}
+header .encabezado .menu {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1rem;
+}
+header .encabezado .logo-tit {
+  display: inline;
+}
+header .encabezado .icon-empresa {
+  font-size: 1.7rem;
+}
+header .encabezado .format-link {
+  color: white;
+}
+@media (max-width: 770px) {
+  header .encabezado .menu {
+    display: block;
+    gap: 0rem;
+    padding: 0rem;
+  }
+  header .encabezado .nav {
+    background-color: #082c4e;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    /* nowrap / wrap / wrap-reverse */
+    justify-content: space-between !important;
+    align-items: center;
+    padding: 1rem 2rem;
+    font-size: large;
+    margin: 0rem;
+    gap: 0rem;
+  }
+}
+header .cabeza {
+  display: flex;
+  flex-wrap: wrap;
+  /* nowrap / wrap / wrap-reverse */
+  justify-content: space-between !important;
+  align-items: center;
+  padding: 0rem 2rem;
+}
+@media (max-width: 770px) {
+  header .cabeza {
+    display: block;
+  }
+}
+
+.main {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 1.5rem;
+  /*-------------- index/ ---------------------*/
+  /*--------------********--------------------*/
+  /*-------------- index/contacto ---------------------*/
+  /*--------------*****************--------------------*/
+  /*-------------- index/pinturas/accesorios ------------*/
+  /*--------------********************--------------------*/
+  /*-------------- pinturas/accesorios---------------------*/
+  /*--------------*******************---------------------*/
+  /*-------------- contacto ---------------------*/
+  /*--------------**********---------------------*/
+  /*-------------- sucursal ---------------------*/
+  /*--------------**********---------------------*/
+}
+.main .prod-destacados {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
+  padding: 0rem 1rem;
+  background-color: white;
+  border-radius: 2rem;
+}
+.main .categ-destacadas {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: rgba(33, 100, 145, 0.541);
+}
+.main .categ-destacadas .imgs-madera {
+  width: 45%;
+  /*height: 20vh;*/
+  aspect-ratio: 3/2;
+  background-image: url("../img/i_madera.png");
+  background-size: cover;
+  flex: 20rem 40rem;
+  border-radius: 1rem;
+  /*color: white;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 1000;
+  font-size: 2rem;
+}
+.main .categ-destacadas .imgs-metales {
+  width: 45%;
+  /*height: 20vh;*/
+  aspect-ratio: 3/2;
+  background-image: url("../img/i_metales.png");
+  background-size: cover;
+  flex: 20rem 40rem;
+  border-radius: 1rem;
+  /*color: white;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 1000;
+  font-size: 2rem;
+}
+.main .categ-destacadas .imgs-accesorios {
+  width: 45%;
+  /*height: 20vh;*/
+  aspect-ratio: 3/2;
+  background-image: url("../img/i_accesorios.png");
+  background-size: cover;
+  flex: 20rem 40rem;
+  border-radius: 1rem;
+  /*color: white;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 1000;
+  font-size: 2rem;
+}
+.main .categ-destacadas .imgs-decorado {
+  width: 45%;
+  /*height: 20vh;*/
+  aspect-ratio: 3/2;
+  background-image: url("../img/i_decorado.png");
+  background-size: cover;
+  flex: 20rem 40rem;
+  border-radius: 1rem;
+  /*color: white;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 1000;
+  font-size: 2rem;
+}
+@media (max-width: 630px) {
+  .main .categ-destacadas {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1rem;
+    border-radius: 2rem;
+  }
+  .main .imgs-madera {
+    height: 12rem;
+  }
+  .main .imgs-metales {
+    height: 12rem;
+  }
+  .main .imgs-accesorios {
+    height: 12rem;
+  }
+  .main .imgs-decorado {
+    height: 12rem;
+  }
+}
+.main .h1-nombre {
+  text-align: center;
+  padding: 1rem;
+  font-weight: 1000;
+  font-size: 2rem;
+}
+.main .imgs-productos {
+  width: 10rem;
+}
+.main .imgs-productos .radio {
+  padding: 0%;
+  border-radius: 3rem;
+}
+.main .imgs-productos .t-prod {
+  text-align: center;
+  color: black;
+}
+.main .imgs-productos .precio {
+  color: rgb(0, 110, 255);
+  font-weight: 800;
+}
+@media (max-width: 630px) {
+  .main .imgs-productos {
+    width: 8em;
+  }
+  .main .imgs-productos .t-achicar {
+    font-size: 1rem;
+  }
+}
+.main .h2-pin-art {
+  padding: 1rem;
+}
+.main .ordenar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 500px) {
+  .main .ordenar {
+    flex-direction: column;
+    padding-bottom: 2rem;
+  }
+}
+.main .formato-pin-art {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 1fr;
+  gap: 2rem;
+  /*grid-template-areas: 
+      "menu-compra menu-imag menu-imag menu-imag menu-imag";*/
+  justify-content: space-between;
+}
+.main .formato-pin-art .menu-compra {
+  padding: 3rem 0rem;
+}
+.main .formato-pin-art .menu-compra .input-n {
+  height: 50%;
+  width: 50%;
+}
+.main .formato-pin-art .menu-imag .prod-ventas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1rem;
+  background-color: white;
+  border-radius: 2rem;
+}
+@media (max-width: 400px) {
+  .main .formato-pin-art {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr;
+    gap: 2rem;
+    /*grid-template-areas: 
+        "menu-compra menu-imag menu-imag menu-imag menu-imag";*/
+    justify-content: space-between;
+  }
+  .main .formato-pin-art .menu-compra {
+    padding: 3rem 0rem;
+  }
+  .main .formato-pin-art .menu-compra .input-n {
+    height: 50%;
+    width: 50%;
+  }
+}
+.main .formulario {
+  padding: 1rem;
+}
+.main .formulario .div-formulario {
+  padding: 1rem;
+}
+.main .formulario .div-formulario .input {
+  width: 100%;
+}
+.main .h2-sucursales {
+  text-decoration: underline;
+}
+.main .flex-sucursales {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+.footer {
+  background-color: #252525;
+  color: white;
+  padding: 1rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+}
+.footer .format-link {
+  color: white;
+}
+.footer .icon-red-social {
+  font-size: 1.1rem;
+  font-family: sans-serif;
+  font-style: normal;
+}
+.footer .logo-empresa {
+  display: flex;
+  gap: 0.2rem;
+  justify-content: center;
+  padding-bottom: 0.5 rem;
+}
+.footer .pad_button {
+  padding: 1rem 0rem;
+}
+.footer .pad_button .icon-empresa {
+  font-size: 1.7rem;
+}
+.footer .footer-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+.footer .footer-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+.footer .footer-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.footer .footer-3 .img-pagar {
+  width: 12rem;
+}
+
+@media (max-width: 575px) {
+  .footer {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1rem;
+    gap: 0rem;
+  }
+  .footer .footer-3 .img-pagar {
+    width: 12rem;
+    padding: 0rem 1rem;
+    gap: 0rem;
+  }
+}/*# sourceMappingURL=main.css.map */

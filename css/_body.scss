@@ -1,0 +1,306 @@
+.main{
+    padding: 2rem 1rem;
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-inline: 1.5rem;
+
+    /*-------------- index/ ---------------------*/
+
+    .prod-destacados{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:space-around;
+        gap: 1rem;
+        padding: 0rem 1rem;
+        background-color: $color_prod_destacados;
+        border-radius: 2rem;
+    }
+
+    .categ-destacadas{
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background-color:$color_categoiras_destacados;
+
+
+        .imgs-madera{
+            width: 45%;
+            /*height: 20vh;*/
+            aspect-ratio: 3/2;
+        
+            background-image: url("../img/i_madera.png");
+        
+            background-size: cover;
+            flex:20rem 40rem;
+        
+            border-radius: 1rem;
+        
+            /*color: white;*/
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            font-weight: 1000;
+            font-size: 2rem;
+        }
+        
+        .imgs-metales{
+            width: 45%;
+            /*height: 20vh;*/
+            aspect-ratio: 3/2;
+        
+            background-image: url("../img/i_metales.png");
+        
+            background-size: cover;
+            flex:20rem 40rem;
+        
+            border-radius: 1rem;
+        
+            /*color: white;*/
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            font-weight: 1000;
+            font-size: 2rem;
+        }
+        
+        .imgs-accesorios{
+            width: 45%;
+            /*height: 20vh;*/
+            aspect-ratio: 3/2;
+        
+            background-image: url("../img/i_accesorios.png");
+        
+            background-size: cover;
+            flex:20rem 40rem;
+        
+            border-radius: 1rem;
+        
+            /*color: white;*/
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            font-weight: 1000;
+            font-size: 2rem;
+        }
+        
+        .imgs-decorado{
+            width: 45%;
+            /*height: 20vh;*/
+            aspect-ratio: 3/2;
+        
+            background-image: url("../img/i_decorado.png");
+        
+            background-size: cover;
+            flex:20rem 40rem;
+        
+            border-radius: 1rem;
+        
+            /*color: white;*/
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            font-weight: 1000;
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width:630px){
+        .categ-destacadas{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content:space-around;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1rem;
+            border-radius: 2rem;
+        }
+
+        .imgs-madera{
+            height:12rem;
+
+        }
+        .imgs-metales{
+            height:12rem;
+        }
+        .imgs-accesorios{
+            height:12rem;
+        }
+        .imgs-decorado{
+            height:12rem;
+        }
+    }
+
+    /*--------------********--------------------*/
+
+    /*-------------- index/contacto ---------------------*/
+
+    .h1-nombre{
+        text-align: center;
+        padding: 1rem;
+        font-weight: 1000;
+        font-size: 2rem;
+    }
+
+    /*--------------*****************--------------------*/
+
+
+    /*-------------- index/pinturas/accesorios ------------*/
+
+    .imgs-productos{
+        width: 10rem;
+
+        .radio{
+            padding: 0%;
+            border-radius: 3rem;
+        }
+
+        .t-prod{
+            text-align: center;
+            
+            color: $color_texto_categoiras_destacados;
+        }
+
+        .precio{
+            color: $color_precio_prod;
+            font-weight: 800;
+        }
+    }
+
+    @media (max-width:630px){
+    
+
+        .imgs-productos{
+            width: 8em;
+    
+            .t-achicar{
+                font-size: 1rem;
+                
+            }
+        }
+    }
+
+    /*--------------********************--------------------*/
+    
+
+
+    /*-------------- pinturas/accesorios---------------------*/
+    .h2-pin-art{
+        padding: 1rem;
+    }
+
+    .ordenar{
+        display: flex;
+        justify-content: space-between;
+        align-items:center;
+
+
+    }
+
+    @media (max-width:500px){
+        .ordenar {
+            flex-direction: column;
+            padding-bottom: 2rem;
+
+        }
+    }
+
+    .formato-pin-art{
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        grid-template-rows: 1fr;
+        gap: 2rem;
+        /*grid-template-areas: 
+            "menu-compra menu-imag menu-imag menu-imag menu-imag";*/
+        justify-content: space-between;
+
+        .menu-compra{
+            padding: 3rem 0rem;
+
+            .input-n{
+                height: 50%;
+                width: 50%;
+            }
+
+        }
+
+        .menu-imag{
+            .prod-ventas{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content:space-around;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem 1rem;
+                background-color: $color_prod_destacados;
+                border-radius: 2rem;
+            }
+        }    
+
+    }
+
+    @media (max-width:400px){
+        .formato-pin-art{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 2fr;
+            gap: 2rem;
+            /*grid-template-areas: 
+                "menu-compra menu-imag menu-imag menu-imag menu-imag";*/
+            justify-content: space-between;
+    
+            .menu-compra{
+                padding: 3rem 0rem;
+    
+                .input-n{
+                    height: 50%;
+                    width: 50%;
+                }
+    
+            }  
+    
+        }
+    }
+
+    
+
+    /*--------------*******************---------------------*/
+
+    
+
+    /*-------------- contacto ---------------------*/
+    .formulario{
+        padding: 1rem;
+        
+        .div-formulario{
+            padding: 1rem;
+
+            .input {
+                width: 100%;
+            }
+        }
+    }
+
+    /*--------------**********---------------------*/
+
+
+    /*-------------- sucursal ---------------------*/
+
+    .h2-sucursales{
+        text-decoration: underline;
+    }
+
+    .flex-sucursales{
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+    }
+
+    /*--------------**********---------------------*/
+
+    
+}

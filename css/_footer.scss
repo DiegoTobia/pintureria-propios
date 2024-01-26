@@ -1,0 +1,87 @@
+.footer {
+    background-color: $color_footer;
+    color: $color_prod_destacados;
+    padding: 1rem 1rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: wrap;
+
+    .format-link{
+        color: $color_prod_destacados;
+    }
+
+    .icon-red-social{
+        font-size: 1.1rem;
+        font-family: sans-serif;
+        font-style: normal;
+    }
+
+    .logo-empresa {
+        display: flex;
+        gap: 0.2rem;
+        justify-content: center;
+        padding-bottom: 0.5 rem;   
+    }
+
+    .pad_button{
+        padding: 1rem 0rem;
+
+        .icon-empresa{
+            font-size: 1.7rem;
+        }
+    }
+
+    .footer-1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+    }
+
+    .footer-2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        
+    }
+
+    .footer-3 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+
+        .img-pagar{
+            width: 12rem;
+        }
+    }
+    
+}
+
+@media (max-width:575px){
+    .footer {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        align-items: center;
+        justify-content: center;
+        padding: 4rem 1rem;
+        gap:0rem;
+
+        .footer-3 {    
+            .img-pagar{
+                width: 12rem;
+                padding: 0rem 1rem;
+                gap:0rem;
+            }
+        }
+
+    }
+}

@@ -1,0 +1,90 @@
+header {
+    background-color: $color_header;
+    color: $color_texto_header;
+    display: flex;
+    flex-wrap: wrap;
+    /* nowrap / wrap / wrap-reverse */
+    justify-content: space-between !important;
+    align-items: center;
+    padding: 1rem 2rem;
+    font-size: large;
+    margin: 0rem;
+
+    .encabezado {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        /* nowrap / wrap / wrap-reverse */
+        justify-content: space-between !important;
+        padding: 0rem 0rem;
+        margin: 0rem;
+        gap:1rem;
+
+        .encabezado_abajo{
+            display: flex !important;
+            flex-wrap: wrap !important;
+            /* nowrap / wrap / wrap-reverse */
+            justify-content: space-between !important;
+            padding: 0rem 0rem;
+            margin: 0rem;
+            gap:1rem;
+        }   
+
+        .menu {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 1rem;
+        }
+
+        .logo-tit{
+            display: inline;
+        }
+
+        .icon-empresa{
+            font-size: 1.7rem;
+        }
+
+        .format-link{
+            color: $color_links_header;
+        }
+
+        @media (max-width:770px){
+            .menu{
+                display: block;
+                gap: 0rem;
+                padding: 0rem;
+                
+            }
+            .nav{
+                background-color: $color_header;
+                color: $color_texto_header;
+                display: flex;
+                flex-wrap: wrap;
+                /* nowrap / wrap / wrap-reverse */
+                justify-content: space-between !important;
+                align-items: center;
+                padding: 1rem 2rem;
+                font-size: large;
+                margin: 0rem;
+                gap: 0rem;
+            }
+        
+        }
+
+    }        
+    
+    .cabeza{
+        display: flex;
+        flex-wrap: wrap;
+        /* nowrap / wrap / wrap-reverse */
+        justify-content: space-between !important;
+        align-items: center;
+        padding: 0rem 2rem;
+    }
+    
+    @media (max-width:770px){
+        .cabeza{
+            display: block;
+        }
+    }
+}
+
