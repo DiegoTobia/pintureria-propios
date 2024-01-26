@@ -39,12 +39,20 @@ header {
             display: inline;
         }
 
+        .logo-tit:hover{
+            text-decoration: underline;
+        }
+
         .icon-empresa{
             font-size: 1.7rem;
         }
 
         .format-link{
             color: $color_links_header;
+        }
+
+        .format-link:hover{
+            text-decoration: underline;
         }
 
         @media (max-width:770px){
