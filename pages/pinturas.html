@@ -56,7 +56,7 @@
                 <h2 class="h2-pin-art">PINTURAS</h2>
                 <form>
                     <div>
-                        <select>
+                        <select id="ordenar_select">
                             <option value="recomendados"  selected>Ordenar:Recomendados</option>
                             <option value="categoria">Ordenar:Categoria</option>
                             <option value="menor_p">Ordenar:Menor precio</option>
@@ -69,68 +69,91 @@
             <div class="formato-pin-art">
                 <div class="menu-compra">
                     <h3 class="pad_button">Categorias</h3>
-                    <form> <input name="agua" type="checkbox"> Al agua</form>
-                    <form> <input name="Exterior" type="checkbox"> Exterior</form>
-                    <form> <input name="Pisos" type="checkbox"> Pisos</form>
+                    <form> <input name="Agua" id="form_Agua" type="checkbox"> Al agua</form>
+                    <form> <input name="Exterior" id="form_Exterior" type="checkbox"> Exterior</form>
+                    <form> <input name="Pisos" id="form_Pisos" type="checkbox"> Pisos</form>
                     <h3 class="pad_button">Marcas</h3>
-                    <form> <input name="Inca" type="checkbox"> Inca</form>
-                    <form> <input name="Pintelux" type="checkbox"> Pintelux</form>
+                    <form> <input name="Inca" id="form_Inca" type="checkbox"> Inca</form>
+                    <form> <input name="Pintelux" id="form_Pintelux" type="checkbox"> Pintelux</form>
                     <h3 class="pad_button">Precio</h3>
-                    <form> <input class="input-n" type="number" min="0"></form>
+                    <form> <input class="input-n" id="form_precio" type="number" min="0"></form>
 
                 </div>
                 <div class="menu-imag">
-                    <ul class="prod-ventas">
+                    <ul class="prod-ventas" id="prod-ventas">
 
-                        <li class="imgs-productos">
+                        <!--<li class="imgs-productos">
                             <img src="../img/cielo_raso.png" class="radio" alt="pintura para cielo raso"> 
                             <p class="t-prod">CIELOS RASOS INCA - 5.0LT</p>
                             <p class="t-prod precio">$5099</p>
+                            <button class="boton-carrito">Añadir al carrito</button>
                         </li>
                         
                         <li class="imgs-productos">
                             <img src="../img/antioxido.png" class="radio" alt="pintura antioxido"> 
                             <p class="t-prod">ANTIOXIDO INCA - 3.2LT</p>
                             <p class="t-prod precio">$4249</p>
+                            <button class="boton-carrito">Añadir al carrito</button>
                         </li>
 
                         <li class="imgs-productos">
                             <img src="../img/membrana.png" class="radio" alt="pintura impermiabilizante"> 
                             <p class="t-prod">MEMBRANA IMPERMIABLE - 4.0LT</p>
                             <p class="t-prod precio">$7200</p>
+                            <button class="boton-carrito">Añadir al carrito</button>
                         </li>
 
                         <li class="imgs-productos">
                             <img src="../img/pisos.png" class="radio" alt="pintura para pisos"> 
                             <p class="t-prod">PISOS - 2.5LT</p>
                             <p class="t-prod precio">$1999</p>
+                            <button class="boton-carrito">Añadir al carrito</button>
                         </li>
 
                         <li class="imgs-productos">
                             <img src="../img/cielo_raso.png" class="radio" alt="pintura para cielo raso"> 
                             <p class="t-prod">CIELOS RASOS INCA - 5.0LT</p>
                             <p class="t-prod precio">$5099</p>
+                            <button class="boton-carrito">Añadir al carrito</button>
                         </li>
                         
                         <li class="imgs-productos">
                             <img src="../img/antioxido.png" class="radio" alt="pintura antioxido"> 
                             <p class="t-prod">ANTIOXIDO INCA - 3.2LT</p>
                             <p class="t-prod precio">$4249</p>
+                            <button class="boton-carrito">Añadir al carrito</button>
                         </li>
 
                         <li class="imgs-productos">
                             <img src="../img/membrana.png" class="radio" alt="pintura impermiabilizante"> 
                             <p class="t-prod">MEMBRANA IMPERMIABLE - 4.0LT</p>
                             <p class="t-prod precio">$7200</p>
+                            <button class="boton-carrito">Añadir al carrito</button>
                         </li>
 
                         <li class="imgs-productos">
                             <img src="../img/pisos.png" class="radio" alt="pintura para pisos"> 
                             <p class="t-prod">PISOS - 2.5LT</p>
                             <p class="t-prod precio">$1999</p>
-                        </li>
+                            <button class="boton-carrito">Añadir al carrito</button>
+                        </li>-->
 
                     </ul>
+                </div>
+            </div>
+            <div class="carrito">
+                <h2 class="h1-nombre h2-pin-art">Carrito</h2>
+                <div class="carrito">
+                    <div id="carrito-vacio">
+                        <h4 class="h1-nombre">El carrito se encuentra Vacio</h4>
+                    </div>
+                    <div class="carrito-productos" id="carrito-productos">
+                        <!-- Esto se rellena en JS -->
+                    </div>
+                    <div class="carrito-total">
+                        <h2 class="h1-nombre">Total: <span id="carrito-total">$0</span></h2>
+                    </div>
+                    <button id="vaciar" class="input">Vaciar carrito</button>
                 </div>
             </div>
         </div>
@@ -182,5 +205,8 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <script src="../js/pinturas.js"></script>
+
 </body>
 </html>
