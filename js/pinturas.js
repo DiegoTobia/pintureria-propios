@@ -113,11 +113,6 @@ selectElement.addEventListener('change', function() {
 
 })
 
-const carrito_vacio = document.querySelector("#carrito-vacio");
-const carrito_productos = document.querySelector("#carrito-productos");
-const carrito_total = document.querySelector("#carrito-total");
-
-
 pinturas_mostrar.forEach((pintura) => {
     let lit = document.createElement("li");
     lit.classList.add("imgs-productos");
@@ -137,20 +132,12 @@ pinturas_mostrar.forEach((pintura) => {
 
     lit.append(comprar);
 
-    contenedorPinuras.append(lit)
+    contenedorPinuras.append(lit);
 })
 
-const agregar_compra = (pintura) => {
-    const item_repetido = productos_a_comprar.find(item => item.id === pintura.id);
-    if (item_repetido){
-        item_repetido.cantidad++;
-    }else{
-        productos_a_comprar.push({...pintura, cantidad:1});
-    }
-    console.log(productos_a_comprar)
-
-    actulizar_carrito();
-}
+const carrito_vacio = document.querySelector("#carrito-vacio");
+const carrito_productos = document.querySelector("#carrito-productos");
+const carrito_total = document.querySelector("#carrito-total");
 
 const actulizar_carrito = () => {
     if (productos_a_comprar.length===0){
@@ -160,11 +147,12 @@ const actulizar_carrito = () => {
         carrito_vacio.classList.add("d-none");
         carrito_productos.classList.remove("d-none");
 
-        productos_a_comprar.innerHTML = "";
+        carrito_productos.innerHTML = "";
         productos_a_comprar.forEach((pintura) => {
             let div = document.createElement("div");
+            div.classList.add("prod-carrito");
             div.innerHTML = `
-                <img src="${pintura.img}" class="ver" alt="${pintura.alt}"> 
+                <img src="${pintura.img}" class="img-carrito" alt="${pintura.alt}"> 
                 <p class="t-prod">"${pintura.descripcion}"</p>
                 <p class="t-prod precio">$"${pintura.precio}"</p>
                 <p>Cant: ${pintura.cantidad}</p>
@@ -184,12 +172,24 @@ const actulizar_carrito = () => {
         })
     }
     actualizar_total();
-    localStorage.setItem("carrito_productos", JSON.stringify(carrito_productos))
+    localStorage.setItem("productos_a_comprar", JSON.stringify(productos_a_comprar))
+}
+
+const agregar_compra = (pintura) => {
+    const item_repetido = productos_a_comprar.find(item => item.id === pintura.id);
+    if (item_repetido){
+        item_repetido.cantidad++;
+    }else{
+        productos_a_comprar.push({...pintura, cantidad:1});
+    }
+    console.log(productos_a_comprar)
+
+    actulizar_carrito();
 }
 
 const borrar_del_carrito = (pintura) => {
-    const index_pintura = carrito_productos.findIndex(item => item.id === pintura.id);
-    carrito_productos.splice(index_pintura, 1);
+    const index_pintura = productos_a_comprar.findIndex(item => item.id === pintura.id);
+    productos_a_comprar.splice(index_pintura, 1);
 
     actulizar_carrito();
 }

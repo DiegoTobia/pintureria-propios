@@ -120,8 +120,8 @@ header .cabeza {
   }*/
   /*--------------********************--------------------*/
   /*-------------- pinturas/accesorios---------------------*/
-  /*--------------*******************---------------------*/
   /*-------------- pinturas ---------------------*/
+  /*--------------*******************---------------------*/
   /*--------------*******************---------------------*/
   /*-------------- contacto ---------------------*/
   /*--------------**********---------------------*/
@@ -384,6 +384,23 @@ header .cabeza {
   background-color: rgba(123, 156, 123, 0.856);
   border-radius: 2rem;
   padding: 2rem;
+}
+.main .carrito .carrito-productos .prod-carrito {
+  margin: 0.5rem;
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 0.8fr 0.8fr 0.8fr;
+  grid-template-rows: 1fr;
+  gap: 2rem;
+  /*grid-template-areas: 
+      "menu-compra menu-imag menu-imag menu-imag menu-imag";*/
+  justify-content: space-between;
+  align-items: center;
+}
+.main .carrito .carrito-productos .prod-carrito p {
+  font-weight: 800;
+}
+.main .carrito .carrito-productos .prod-carrito .img-carrito {
+  border-radius: 2rem;
 }
 .main .carrito .input {
   width: 100%;
