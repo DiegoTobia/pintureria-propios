@@ -1,10 +1,14 @@
 const productos_a_comprar = JSON.parse(localStorage.getItem("productos_a_comprar")) || [];
 
+KprecioMax = 8000;
+
 const pinturas_random = [
     {
         id:"raso1",
         img: "../img/cielo_raso.png",
         descripcion: "CIELOS RASOS INCA - 5.0LT",
+        atributo: "exterior",
+        marca: "INCA",
         alt:"pintura para cielo raso",
         precio: 5099,
     },
@@ -12,6 +16,8 @@ const pinturas_random = [
         id:"antioxido1",
         img: "../img/antioxido.png",
         descripcion: "ANTIOXIDO INCA - 3.2LT",
+        atributo: "exterior",
+        marca: "INCA",
         alt:"pintura antioxido",
         precio: 4249,
     },
@@ -19,6 +25,8 @@ const pinturas_random = [
         id:"impermiable1",
         img: "../img/membrana.png",
         descripcion: "MEMBRANA IMPERMIABLE - 4.0LT",
+        atributo: "exterior",
+        marca: "INCA",
         alt:"pintura impermiabilizante",
         precio: 7200,
     },
@@ -26,68 +34,180 @@ const pinturas_random = [
         id:"pisos1",
         img: "../img/pisos.png",
         descripcion: "PISOS - 2.5LT",
+        atributo: "pisos",
+        marca: "INCA",
         alt:"pintura para pisos",
         precio: 1999,
     }
 ];
-const pinturas_precio_mayor= [
-    {
-        id:"impermiable1",
-        img: "../img/membrana.png",
-        descripcion: "MEMBRANA IMPERMIABLE - 4.0LT",
-        alt:"pintura impermiabilizante",
-        precio: 7200,
-    },
-    {
-        id:"raso1",
-        img: "../img/cielo_raso.png",
-        descripcion: "CIELOS RASOS INCA - 5.0LT",
-        alt:"pintura para cielo raso",
-        precio: 5099,
-    },
-    {
-        id:"antioxido1",
-        img: "../img/antioxido.png",
-        descripcion: "ANTIOXIDO INCA - 3.2LT",
-        alt:"pintura antioxido",
-        precio: 4249,
-    },
-    {
-        id:"pisos1",
-        img: "../img/pisos.png",
-        descripcion: "PISOS - 2.5LT",
-        alt:"pintura para pisos",
-        precio: 1999,
-    }
-];
-const pinturas_precio_menor = pinturas_precio_mayor.slice().reverse();
-let pinturas_mostrar = pinturas_random;
+let pinturas_mostrar = JSON.parse(localStorage.getItem("ordenar_select")) ||  pinturas_random;
 
-let contenedorPinuras = document.querySelector("#prod-ventas");
+let contenedorPinturas = document.querySelector("#prod-ventas");
 let selectElement = document.getElementById('ordenar_select');
 
-/*let form_Agua = document.getElementById('form_Agua');
-let form_Exterior = document.getElementById('form_Exterior');
-let form_Pisos = document.getElementById('form_Pisos');
-let form_Inca = document.getElementById('form_Inca');
-let form_Pintelux = document.getElementById('form_Pintelux');
-let form_precio = document.getElementById('form_precio');*/
-/*let valorSeleccionado = selectElement.value;*/
+//###################################3###################################
+
+const checkboxes_catego = [
+    document.getElementById("form_Agua"),
+    document.getElementById("form_Exterior"),
+    document.getElementById("form_Pisos")
+];
+
+const checkboxes_marcas = [
+    document.getElementById("form_Inca"),
+    document.getElementById("form_Pintelux"),
+];
+
+const form_precio_min = document.getElementById("form_precio_min");
+const form_precio_max = document.getElementById("form_precio_max");
+
+//###################################3###################################
+
+function getNumericValue(value, defaultValue) {
+    // Convierte el valor a número y usa defaultValue si es `NaN`
+    const numericValue = parseFloat(value);
+    return isNaN(numericValue) ? defaultValue : numericValue;
+}
+
+function filtrarPorRangoDePrecios() {
+
+    const precio_min = getNumericValue(form_precio_min.value, 0); // 0 como valor por defecto
+    const precio_max = getNumericValue(form_precio_max.value, KprecioMax);
+
+    // Asegurarse de que el precio mínimo no sea mayor que el máximo
+    if (parseFloat(precio_min) > parseFloat(precio_max)) {
+        form_precio_max.value = form_precio_min.value;
+    }
+
+    // Filtrar productos por el rango de precios
+    let productosFiltrados = JSON.parse(localStorage.getItem("ordenar_select")) ||  pinturas_random;
+    productosFiltrados = productosFiltrados.filter(
+        (producto) => producto.precio >= precio_min && producto.precio <= precio_max
+    );
+
+    // Renderizar los productos filtrados
+    /*contenedorPinturas.innerHTML = "";
+
+    productosFiltrados.forEach((producto) => {
+        const li = document.createElement("li");
+        li.classList.add("imgs-productos");
+        li.innerHTML = `
+            <img src="${producto.img}" class="radio" alt="${producto.alt}">
+            <p class="t-prod">${producto.descripcion}</p>
+            <p class="t-prod precio">$${producto.precio}</p>
+        `;
+
+        const boton = document.createElement("button");
+        boton.classList.add("boton-carrito");
+        boton.innerText = "Añadir al carrito";
+        // Agregar lógica para añadir al carrito si es necesario
+        li.appendChild(boton);
+
+        contenedorPinturas.appendChild(li);
+    });*/
+    return productosFiltrados;
+}
+
+// Función para filtrar y mostrar los productos según los checkboxes seleccionados
+function filtrarYMostrarProductos() {
+
+    // Obtener las categorías y marcas seleccionadas
+    const categoriasSeleccionadas = checkboxes_catego
+        .filter(checkbox => checkbox.checked && checkbox.id.startsWith("form_"))
+        .map(checkbox => checkbox.id.split("_")[1].toLowerCase());
+
+    const marcasSeleccionadas = checkboxes_marcas
+    .filter(checkbox => checkbox.checked && checkbox.id.startsWith("form_"))
+    .map(checkbox => checkbox.id.split("_")[1].toLowerCase());
+
+    // Filtrar el array por las categorías seleccionadas
+    let productosFiltrados = filtrarPorRangoDePrecios(); //JSON.parse(localStorage.getItem("ordenar_select")) ||  pinturas_random;
+    if (categoriasSeleccionadas.length > 0) {
+        productosFiltrados = productosFiltrados.filter(
+            producto =>
+                categoriasSeleccionadas.includes(producto.atributo.toLowerCase())
+        );
+    }
+    if (marcasSeleccionadas.length > 0) {
+
+        productosFiltrados = productosFiltrados.filter(
+            producto =>
+            marcasSeleccionadas.includes(producto.marca.toLowerCase())
+        );
+        
+    }
+
+    // Limpiar el contenedor de pinturas
+    contenedorPinturas.innerHTML = "";
+
+    // Renderizar los productos filtrados
+    productosFiltrados.forEach((pintura) => {
+        let lit = document.createElement("li");
+        lit.classList.add("imgs-productos");
+        lit.innerHTML = `
+            <img src="${pintura.img}" class="radio" alt="${pintura.alt}"> 
+            <p class="t-prod">"${pintura.descripcion}"</p>
+            <p class="t-prod precio">$"${pintura.precio}"</p>
+        `;
+        /*<button class="boton-carrito">Añadir al carrito</button>*/
+
+        let comprar = document.createElement("button");
+        comprar.classList.add("boton-carrito");
+        comprar.innerText = "Añadir al carrito";
+        comprar.addEventListener("click", () => {
+            agregar_compra(pintura);
+        });
+
+        lit.append(comprar);
+
+        contenedorPinturas.append(lit);
+    });
+
+    // Guardar en localStorage el resultado del filtro
+    //localStorage.setItem("ordenar_select", JSON.stringify(productosFiltrados));
+}
+
+// Agregar eventos a los checkboxes para que ejecuten la función de filtrado cuando cambien
+checkboxes_catego.forEach((checkbox) => {
+    checkbox.addEventListener("change", filtrarYMostrarProductos);
+});
+checkboxes_marcas.forEach((checkbox) => {
+    checkbox.addEventListener("change", filtrarYMostrarProductos);
+});
+
+// Mostrar los productos filtrados por primera vez (esto manejará el estado inicial del localStorage)
+//filtrarYMostrarProductos();
+
+// Escuchar eventos de cambio para ambos inputs
+form_precio_min.addEventListener("change", filtrarYMostrarProductos);
+form_precio_max.addEventListener("change", filtrarYMostrarProductos);
+
+// Mostrar productos filtrados según el rango de precios inicial
+//filtrarYMostrarProductos(); // Para manejar el estado inicial del localStorage si es necesario
+
+//###################################3###################################
+
+
+const ordenar_productos = (orden, pinturas_filtros) => {
+    const copiaArray = [...pinturas_filtros];
+    if (orden=="menor_p" || orden=="descuento"){
+        copiaArray.sort((a, b) => a.precio - b.precio);
+    }else if (orden=="mayor_p"){
+        copiaArray.sort((a, b) => b.precio - a.precio);
+    }
+
+    localStorage.setItem("ordenar_select", JSON.stringify(copiaArray));
+
+    return copiaArray
+}
 
 selectElement.addEventListener('change', function() {
     const valorSeleccionado = selectElement.value;
     /*si es por categoria o recomendado aun no hago nada, hay 4 productos*/
-    if (valorSeleccionado=="menor_p"){
-        pinturas_mostrar = pinturas_precio_menor;
-    }else if (valorSeleccionado=="mayor_p"){
-        pinturas_mostrar = pinturas_precio_mayor;
-    }else if (valorSeleccionado=="descuento"){
-        pinturas_mostrar = pinturas_precio_menor;
-    }else{
-        pinturas_mostrar = pinturas_random;
-    }
+    pinturas_mostrar = ordenar_productos(valorSeleccionado, pinturas_random);
+    
 
-    contenedorPinuras.innerHTML = "";
+    contenedorPinturas.innerHTML = "";
 
     pinturas_mostrar.forEach((pintura) => {
         let lit = document.createElement("li");
@@ -108,7 +228,7 @@ selectElement.addEventListener('change', function() {
     
         lit.append(comprar);
     
-        contenedorPinuras.append(lit)
+        contenedorPinturas.append(lit);
     })
 
 })
@@ -132,7 +252,8 @@ pinturas_mostrar.forEach((pintura) => {
 
     lit.append(comprar);
 
-    contenedorPinuras.append(lit);
+    contenedorPinturas.append(lit);
+
 })
 
 const carrito_vacio = document.querySelector("#carrito-vacio");
@@ -200,3 +321,23 @@ const actualizar_total = () => {
 }
 
 actulizar_carrito();
+
+
+const carritoSeccion = document.getElementById("carrito-seccion");
+        
+// Función para mostrar el carrito
+function mostrarCarrito() {
+    carritoSeccion.classList.add("show");
+}
+
+// Función para ocultar el carrito
+function ocultarCarrito() {
+    carritoSeccion.classList.remove("show");
+}
+
+// Agregar función para alternar el carrito
+function alternarCarrito() {
+    carritoSeccion.classList.toggle("show");
+}
+
+document.getElementById("mostrar-carrito").addEventListener("click", mostrarCarrito);

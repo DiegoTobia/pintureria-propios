@@ -42,7 +42,7 @@
                     <div class="nav">
                         <ul class="menu">
                             <li class="nav-item menu-item"><a href="#inicio" class="nav-link active format-link">Buscar</a></li>
-                            <li class="nav-item menu-item"><a href="./carrito.html" class="nav-link active format-link">Carrito</a></li>
+                            <li class="nav-item menu-item"><a id="mostrar-carrito" class="nav-link active format-link">Carrito</a></li>
                         </ul>
                     </div>
                 </div>
@@ -76,7 +76,12 @@
                     <form> <input name="Inca" id="form_Inca" type="checkbox"> Inca</form>
                     <form> <input name="Pintelux" id="form_Pintelux" type="checkbox"> Pintelux</form>
                     <h3 class="pad_button">Precio</h3>
-                    <form> <input class="input-n" id="form_precio" type="number" min="0"></form>
+                    <!--<input class="input-n" id="form_precio" type="number" min="0">-->
+                    <form class="inline-inputs">  
+                        <input class="input-n" id="form_precio_min" type="number" min="0" value="0"> 
+                        <p>-</p>
+                        <input class="input-n" id="form_precio_max" type="number" min="0"> 
+                    </form>
 
                 </div>
                 <div class="menu-imag">
@@ -141,7 +146,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="carrito">
+            <!--<div class="carrito">
                 <h2 class="h1-nombre h2-pin-art">Carrito</h2>
                 <div class="carrito">
                     <div id="carrito-vacio">
@@ -155,7 +160,38 @@
                     </div>
                     <button id="vaciar" class="input">Vaciar carrito</button>
                 </div>
+            </div> -->
+                
+
+            <div class="carrito" id="carrito-seccion">
+                <h2 class="h1-nombre h2-pin-art">Carrito</h2>
+                <div class="carrito">
+                    <div id="carrito-vacio">
+                        <h4 class="h1-nombre">El carrito se encuentra Vacio</h4>
+                    </div>
+                    <div class="carrito-productos" id="carrito-productos">
+                        
+                    </div>
+                    <div class="carrito-total">
+                        <h2 class="h1-nombre">Total: <span id="carrito-total">$0</span></h2>
+                    </div>
+                    <button id="vaciar" class="input">Vaciar carrito</button>
+                </div>
+                <button onclick="ocultarCarrito()">Cerrar</button>
             </div> 
+
+
+            <!-- Carrito (por defecto está oculto) -->
+            <!-- <div class="carrito-seccion" id="carrito-seccion">
+                <h2>Carrito de Compras</h2>
+                <div id="carrito-contenido"> 
+                </div>
+                <div id="carrito-total">Total: $0</div> 
+                <button onclick="ocultarCarrito()">Cerrar</button> 
+            </div>-->
+            
+            <!-- Menú con enlace para mostrar el carrito -->
+
         </div>
     </main>
 
