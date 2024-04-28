@@ -469,6 +469,27 @@ header .cabeza {
   z-index: 1000; /* Asegura que esté por encima de otros elementos */
   display: none; /* Oculto por defecto */
 }
+.carrito .carrito-titulo {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.carrito .carrito-titulo .carrito-nombre {
+  max-width: 1200px;
+  margin-left: 1rem;
+  padding-inline: 1.5rem;
+  padding: 1rem;
+  font-weight: 1000;
+  font-size: 2rem;
+}
+.carrito .carrito-titulo .carrito-cerrar {
+  margin-right: 1rem;
+  background-color: rgba(95, 95, 95, 0.89);
+  padding: 0.1rem;
+  border-color: rgba(95, 95, 95, 0.89);
+}
 .carrito .carrito-productos .prod-carrito {
   margin: 0.5rem;
   display: grid;

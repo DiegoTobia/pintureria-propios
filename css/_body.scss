@@ -4,6 +4,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding-inline: 1.5rem;
+    
 
     /*-------------- index/ ---------------------*/
 
@@ -466,7 +467,7 @@
 
     
 }
-  
+
 
 /*-------------- pinturas ---------------------*/
 .carrito{
@@ -483,6 +484,34 @@
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
     z-index: 1000; /* Asegura que esté por encima de otros elementos */
     display: none; /* Oculto por defecto */
+
+    .carrito-titulo{
+        display: flex;
+        
+        gap:3rem;
+        align-items: center;
+        //justify-content: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .carrito-nombre{
+            max-width: 1200px;
+            //margin: 0 auto;
+            margin-left: 1rem;
+            padding-inline: 1.5rem;
+
+            padding: 1rem;
+            font-weight: 1000;
+            font-size: 2rem;
+        }
+
+        .carrito-cerrar{
+            margin-right: 1rem;
+            background-color: rgba(95, 95, 95, 0.89);
+            padding: 0.1rem;
+            border-color: rgba(95, 95, 95, 0.89);
+        }
+    }
 
     .carrito-productos{
         

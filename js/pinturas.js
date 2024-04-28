@@ -187,6 +187,27 @@ form_precio_max.addEventListener("change", filtrarYMostrarProductos);
 
 //###################################3###################################
 
+const carritoSeccion = document.getElementById("carrito-seccion");
+        
+// Función para mostrar el carrito
+function mostrarCarrito() {
+    carritoSeccion.classList.add("show");
+}
+
+// Función para ocultar el carrito
+function ocultarCarrito() {
+    carritoSeccion.classList.remove("show");
+}
+
+// Agregar función para alternar el carrito
+function alternarCarrito() {
+    carritoSeccion.classList.toggle("show");
+}
+
+document.getElementById("mostrar-carrito").addEventListener("click", mostrarCarrito);
+
+//##############################################################################
+
 
 const ordenar_productos = (orden, pinturas_filtros) => {
     const copiaArray = [...pinturas_filtros];
@@ -276,9 +297,26 @@ const actulizar_carrito = () => {
                 <img src="${pintura.img}" class="img-carrito" alt="${pintura.alt}"> 
                 <p class="t-prod">"${pintura.descripcion}"</p>
                 <p class="t-prod precio">$"${pintura.precio}"</p>
-                <p>Cant: ${pintura.cantidad}</p>
-            `;
-            
+            `; // <p>Cant: ${pintura.cantidad}</p>
+            let agrgar_uno = document.createElement("button");
+            agrgar_uno.classList.add("input");
+            agrgar_uno.innerText = "+";
+            agrgar_uno.addEventListener("click", () => {
+                agregar_uno_mas(pintura);
+            });
+            div.append(agrgar_uno);
+
+            let cantidad = document.createElement("p");
+            cantidad.innerText = `Cant: ${pintura.cantidad}`;
+            div.append(cantidad);
+
+            let sacar_uno = document.createElement("button");
+            sacar_uno.classList.add("input");
+            sacar_uno.innerText = "-";
+            sacar_uno.addEventListener("click", () => {
+                sacar_uno_mas(pintura);
+            });
+            div.append(sacar_uno);
 
             let cancelar = document.createElement("button");
             cancelar.classList.add("input");
@@ -306,11 +344,30 @@ const agregar_compra = (pintura) => {
     console.log(productos_a_comprar)
 
     actulizar_carrito();
+    mostrarCarrito();
 }
 
 const borrar_del_carrito = (pintura) => {
     const index_pintura = productos_a_comprar.findIndex(item => item.id === pintura.id);
     productos_a_comprar.splice(index_pintura, 1);
+
+    actulizar_carrito();
+}
+
+const agregar_uno_mas = (pintura) => {
+    const prod_pintura = productos_a_comprar.find(item => item.id === pintura.id);
+    prod_pintura.cantidad++;
+
+    actulizar_carrito();
+}
+
+const sacar_uno_mas = (pintura) => {
+    const prod_pintura = productos_a_comprar.find(item => item.id === pintura.id);
+    if (prod_pintura.cantidad==1){
+        borrar_del_carrito(pintura);
+    }else{
+        prod_pintura.cantidad--;
+    }
 
     actulizar_carrito();
 }
@@ -322,22 +379,14 @@ const actualizar_total = () => {
 
 actulizar_carrito();
 
+//##############################################################################
 
-const carritoSeccion = document.getElementById("carrito-seccion");
-        
-// Función para mostrar el carrito
-function mostrarCarrito() {
-    carritoSeccion.classList.add("show");
-}
+const central = document.querySelector(".central"); 
 
-// Función para ocultar el carrito
-function ocultarCarrito() {
-    carritoSeccion.classList.remove("show");
-}
+//central.addEventListener("click", ocultarCarrito);
 
-// Agregar función para alternar el carrito
-function alternarCarrito() {
-    carritoSeccion.classList.toggle("show");
-}
-
-document.getElementById("mostrar-carrito").addEventListener("click", mostrarCarrito);
+central.addEventListener("click", function(event) {
+    if (!event.target.closest(".boton-carrito")) { // Si no es el botón "agregar al carrito"
+        ocultarCarrito(); // Cerramos el carrito
+    }
+});
