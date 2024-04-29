@@ -456,7 +456,7 @@ header .cabeza {
   }
 }
 
-/*-------------- pinturas ---------------------*/
+/*-------------- pinturas-accesorios ---------------------*/
 .carrito {
   padding: 2rem;
   position: fixed; /* Fijo para que no se desplace */
@@ -490,22 +490,49 @@ header .cabeza {
   padding: 0.1rem;
   border-color: rgba(95, 95, 95, 0.89);
 }
+.carrito .carrito-productos .nombres_columnas {
+  display: grid;
+  grid-template-columns: 2fr 0.7fr 1fr 0.5fr;
+  gap: 1rem;
+}
+.carrito .carrito-productos .nombres_columnas p {
+  font-weight: 800;
+  text-align: center;
+}
 .carrito .carrito-productos .prod-carrito {
   margin: 0.5rem;
   display: grid;
-  grid-template-columns: 0.5fr 2fr 0.8fr 0.8fr 0.8fr;
+  grid-template-columns: 2fr 0.7fr 1fr 0.5fr;
   grid-template-rows: 1fr;
-  gap: 2rem;
+  gap: 1rem;
   /*grid-template-areas: 
       "menu-compra menu-imag menu-imag menu-imag menu-imag";*/
   justify-content: space-between;
   align-items: center;
+  text-align: center;
+}
+.carrito .carrito-productos .prod-carrito .img-descrip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 .carrito .carrito-productos .prod-carrito p {
   font-weight: 800;
 }
+.carrito .carrito-productos .prod-carrito .cant-mas-menos {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0rem;
+  padding: 0.1rem;
+}
 .carrito .carrito-productos .prod-carrito .img-carrito {
   border-radius: 2rem;
+  width: 5rem;
+}
+.carrito .carrito-productos .input_cantidad {
+  width: 1rem;
+  text-align: center;
 }
 .carrito .input {
   width: 100%;

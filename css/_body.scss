@@ -469,7 +469,7 @@
 }
 
 
-/*-------------- pinturas ---------------------*/
+/*-------------- pinturas-accesorios ---------------------*/
 .carrito{
     //background-color: rgba(123, 156, 123, 0.856);
     //border-radius: 2rem;
@@ -514,27 +514,61 @@
     }
 
     .carrito-productos{
+
+        .nombres_columnas{
+            display: grid;
+            grid-template-columns: 2fr 0.7fr 1fr 0.5fr;
+            gap: 1rem;
+
+            
+            p{
+                font-weight: 800;
+                text-align: center;
+            }
+        }
         
         .prod-carrito{
             margin: 0.5rem;
             display: grid;
-            grid-template-columns: 0.5fr 2fr 0.8fr 0.8fr 0.8fr;
+            grid-template-columns: 2fr 0.7fr 1fr 0.5fr;
             grid-template-rows: 1fr;
-            gap: 2rem;
+            gap: 1rem;
             /*grid-template-areas: 
                 "menu-compra menu-imag menu-imag menu-imag menu-imag";*/
             justify-content: space-between;
             align-items: center;
 
+            text-align: center;
+
+            .img-descrip{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
 
             p{
                 font-weight: 800;
             }
 
+            .cant-mas-menos{
+                text-align: center;
+                display: flex; 
+                justify-content: center;
+                align-items: center;
+                margin: 0rem;
+                padding: 0.1rem;
+                
+            }
+
             .img-carrito{
                 border-radius: 2rem;
+                width: 5rem;
 
             }
+        }
+
+        .input_cantidad {
+            width: 1rem;
+            text-align: center;
         }
 
         
@@ -548,6 +582,7 @@
 .carrito.show {
     display: block; /* Mostrar cuando tenga la clase "show" */
 }
+
 
 /*--------------*******************---------------------*/
 

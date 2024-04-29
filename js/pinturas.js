@@ -1,4 +1,4 @@
-const productos_a_comprar = JSON.parse(localStorage.getItem("productos_a_comprar")) || [];
+let productos_a_comprar = JSON.parse(localStorage.getItem("productos_a_comprar")) || [];
 
 KprecioMax = 8000;
 
@@ -188,6 +188,17 @@ form_precio_max.addEventListener("change", filtrarYMostrarProductos);
 //###################################3###################################
 
 const carritoSeccion = document.getElementById("carrito-seccion");
+const finalizarCompra = document.querySelector(".finalizar-compra"); //document.getElementById("finalizar-compra");
+
+// Función para mostrar finalizar compra
+// Función para ocultar el carrito
+function actualizarVisibilidadFinalizar() {
+    if (productos_a_comprar.length === 0) {
+        finalizarCompra.style.display = "none"; // Ocultar el botón si el carrito está vacío
+    } else {
+        finalizarCompra.style.display = "block"; // Mostrar el botón si el carrito tiene productos
+    }
+}
         
 // Función para mostrar el carrito
 function mostrarCarrito() {
@@ -281,46 +292,75 @@ const carrito_vacio = document.querySelector("#carrito-vacio");
 const carrito_productos = document.querySelector("#carrito-productos");
 const carrito_total = document.querySelector("#carrito-total");
 
+const final_compra = document.querySelector("#final-compra");
+const carrito_total_div = document.querySelector("#carrito-total-div");
+
 const actulizar_carrito = () => {
     if (productos_a_comprar.length===0){
         carrito_vacio.classList.remove("d-none");
         carrito_productos.classList.add("d-none");
+
+        carrito_total_div.classList.remove("d-none");
+        final_compra.classList.add("d-none");
     }else{
         carrito_vacio.classList.add("d-none");
         carrito_productos.classList.remove("d-none");
 
+        carrito_total_div.classList.remove("d-none");
+        final_compra.classList.add("d-none");
+
         carrito_productos.innerHTML = "";
+
+        let colums_nombres = document.createElement("div");
+        colums_nombres.classList.add("nombres_columnas");
+        colums_nombres.innerHTML = `
+            <p class="t-prod">Producto</p>
+            <p class="t-prod">Precio Total</p>
+            <p class="t-prod">Cantitad</p>
+        `;
+        carrito_productos.append(colums_nombres);
+
         productos_a_comprar.forEach((pintura) => {
             let div = document.createElement("div");
             div.classList.add("prod-carrito");
             div.innerHTML = `
-                <img src="${pintura.img}" class="img-carrito" alt="${pintura.alt}"> 
-                <p class="t-prod">"${pintura.descripcion}"</p>
-                <p class="t-prod precio">$"${pintura.precio}"</p>
+                <div class="img-descrip"> 
+                    <img src="${pintura.img}" class="img-carrito" alt="${pintura.alt}"> 
+                    <p class="t-prod">"${pintura.descripcion}"</p>
+                </div>
+                <div> 
+                    <p class="t-prod precio">$${pintura.precio * pintura.cantidad}</p>
+                </div>
             `; // <p>Cant: ${pintura.cantidad}</p>
-            let agrgar_uno = document.createElement("button");
-            agrgar_uno.classList.add("input");
-            agrgar_uno.innerText = "+";
-            agrgar_uno.addEventListener("click", () => {
-                agregar_uno_mas(pintura);
-            });
-            div.append(agrgar_uno);
 
-            let cantidad = document.createElement("p");
-            cantidad.innerText = `Cant: ${pintura.cantidad}`;
-            div.append(cantidad);
+            let div_cantidad = document.createElement("div");
+            div_cantidad.classList.add("cant-mas-menos");
 
             let sacar_uno = document.createElement("button");
-            sacar_uno.classList.add("input");
+            sacar_uno.classList.add("input_cantidad");
             sacar_uno.innerText = "-";
             sacar_uno.addEventListener("click", () => {
                 sacar_uno_mas(pintura);
             });
-            div.append(sacar_uno);
+            div_cantidad.append(sacar_uno);
+
+            let cantidad = document.createElement("p");
+            cantidad.innerText = `Cant: ${pintura.cantidad}`;
+            div_cantidad.append(cantidad);
+
+            let agrgar_uno = document.createElement("button");
+            agrgar_uno.classList.add("input_cantidad");
+            agrgar_uno.innerText = "+";
+            agrgar_uno.addEventListener("click", () => {
+                agregar_uno_mas(pintura);
+            });
+            div_cantidad.append(agrgar_uno);
+
+            div.append(div_cantidad);
 
             let cancelar = document.createElement("button");
-            cancelar.classList.add("input");
-            cancelar.innerText = "Cancelar";
+            cancelar.classList.add("input"); //input
+            cancelar.innerText = "borarr";
             cancelar.addEventListener("click", () => {
                 borrar_del_carrito(pintura);
             });
@@ -330,6 +370,7 @@ const actulizar_carrito = () => {
 
         })
     }
+    actualizarVisibilidadFinalizar();
     actualizar_total();
     localStorage.setItem("productos_a_comprar", JSON.stringify(productos_a_comprar))
 }
@@ -376,6 +417,22 @@ const actualizar_total = () => {
     let total = productos_a_comprar.reduce((acc, pint) => acc + (pint.precio * pint.cantidad), 0);
     carrito_total.innerHTML = `$${total}`;
 }
+
+const fin_de_compra = () => {
+    carrito_vacio.classList.add("d-none");
+    carrito_total_div.classList.add("d-none");
+
+    carrito_productos.classList.add("d-none");
+    productos_a_comprar = []; // Vaciar el array del carrito
+    localStorage.setItem("productos_a_comprar", JSON.stringify(productos_a_comprar));
+    actualizarVisibilidadFinalizar();
+    
+
+    final_compra.classList.remove("d-none");
+
+}
+
+finalizarCompra.addEventListener("click", () => {fin_de_compra();})
 
 actulizar_carrito();
 

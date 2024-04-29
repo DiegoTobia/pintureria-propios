@@ -43,7 +43,7 @@
                     <div class="nav">
                         <ul class="menu">
                             <li class="nav-item menu-item"><a href="#inicio" class="nav-link active format-link">Buscar</a></li>
-                            <li class="nav-item menu-item"><a href="#inicio" class="nav-link active format-link">Carrito</a></li>
+                            <li class="nav-item menu-item"><a id="mostrar-carrito" class="nav-link active format-link">Carrito</a></li>
                         </ul>
                     </div>
                 </div>
@@ -53,89 +53,115 @@
 
     <main id="inicio" class="main">
         <div>
-            <div class="ordenar">
-                <h2 class="h2-pin-art">ACCESORIOS</h2>
-                <form>
-                    <div>
-                        <select>
-                            <option value="recomendados"  selected>Ordenar:Recomendados</option>
-                            <option value="categoria">Ordenar:Categoria</option>
-                            <option value="menor_p">Ordenar:Menor precio</option>
-                            <option value="mayor_p">Ordenar:Mayor precio</option>
-                            <option value="descuento">Ordenar:Descuento</option>
-                        </select>
+            <div class="central"></div>
+                <div class="ordenar">
+                    <h2 class="h2-pin-art">ACCESORIOS</h2>
+                    <form>
+                        <div>
+                            <select id="ordenar_select">
+                                <option value="recomendados"  selected>Ordenar:Recomendados</option>
+                                <option value="categoria">Ordenar:Categoria</option>
+                                <option value="menor_p">Ordenar:Menor precio</option>
+                                <option value="mayor_p">Ordenar:Mayor precio</option>
+                                <option value="descuento">Ordenar:Descuento</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="formato-pin-art">
+                    <div class="menu-compra">
+                        <h3 class="pad_button">Categorias</h3>
+                        <form> <input name="Lijas" id="form_Lijas" type="checkbox"> Lijas</form>
+                        <form> <input name="Pinceles" id="form_Pinceles" type="checkbox"> Pinceles</form>
+                        <form> <input name="Rodillos" id="form_Rodillos" type="checkbox"> Rodillos</form>
+                        <form> <input name="Rodillos" id="form_Guantes" type="checkbox"> Guantes</form>
+                        <h3 class="pad_button">Marcas</h3>
+                        <form> <input name="greco" id="form_Greco" type="checkbox"> Greco</form>
+                        <form> <input name="pintelux" id="form_Pintelux" type="checkbox"> Pintelux</form>
+                        <h3 class="pad_button">Precio</h3>
+                        <form class="inline-inputs">  
+                            <input class="input-n" id="form_precio_min" type="number" min="0" value="0"> 
+                            <p>-</p>
+                            <input class="input-n" id="form_precio_max" type="number" min="0"> 
+                        </form>
+
                     </div>
-                </form>
-            </div>
-            <div class="formato-pin-art">
-                <div class="menu-compra">
-                    <h3 class="pad_button">Categorias</h3>
-                    <form> <input name="Lijas" type="checkbox"> Lijas</form>
-                    <form> <input name="Pinceles" type="checkbox"> Pinceles</form>
-                    <form> <input name="Rodillos" type="checkbox"> Rodillos</form>
-                    <form> <input name="Rodillos" type="checkbox"> Rodillos</form>
-                    <form> <input name="Otros" type="checkbox"> Otros</form>
-                    <h3 class="pad_button">Marcas</h3>
-                    <form> <input name="greco" type="checkbox"> Greco</form>
-                    <form> <input name="pintelux" type="checkbox"> Pintelux</form>
-                    <h3 class="pad_button">Precio</h3>
-                    <form> <input class="input-n" type="number" min="0"></form>
+                    <div class="menu-imag">
+                        <ul class="prod-ventas" id="prod-ventas">
 
-                </div>
-                <div class="menu-imag">
-                    <ul class="prod-ventas">
+                            <!--<li class="imgs-productos">
+                                <img src="../img/rodillo.png" class="radio" alt="rodillo"> 
+                                <p class="t-prod">RODILLO - 23CM</p>
+                                <p class="t-prod precio">$449</p>
+                            </li>
+                            
+                            <li class="imgs-productos">
+                                <img src="../img/guantes.png" class="radio" alt="guantes"> 
+                                <p class="t-prod">GUANTES DE TEJIDO NEGRO</p>
+                                <p class="t-prod precio">$99</p>
+                            </li>
 
-                        <li class="imgs-productos">
-                            <img src="../img/rodillo.png" class="radio" alt="rodillo"> 
-                            <p class="t-prod">RODILLO - 23CM</p>
-                            <p class="t-prod precio">$449</p>
-                        </li>
-                        
-                        <li class="imgs-productos">
-                            <img src="../img/guantes.png" class="radio" alt="guantes"> 
-                            <p class="t-prod">GUANTES DE TEJIDO NEGRO</p>
-                            <p class="t-prod precio">$99</p>
-                        </li>
+                            <li class="imgs-productos">
+                                <img src="../img/pincel.png" class="radio" alt="pincel"> 
+                                <p class="t-prod">PINCEL ESPECIAL -Nº22</p>
+                                <p class="t-prod precio">$299</p>
+                            </li>
 
-                        <li class="imgs-productos">
-                            <img src="../img/pincel.png" class="radio" alt="pincel"> 
-                            <p class="t-prod">PINCEL ESPECIAL -Nº22</p>
-                            <p class="t-prod precio">$299</p>
-                        </li>
+                            <li class="imgs-productos">
+                                <img src="../img/lija.png" class="radio" alt="lija"> 
+                                <p class="t-prod">LIJA AL AGUA GR.400</p>
+                                <p class="t-prod precio">$39</p>
+                            </li>
 
-                        <li class="imgs-productos">
-                            <img src="../img/lija.png" class="radio" alt="lija"> 
-                            <p class="t-prod">LIJA AL AGUA GR.400</p>
-                            <p class="t-prod precio">$39</p>
-                        </li>
+                            <li class="imgs-productos">
+                                <img src="../img/rodillo.png" class="radio" alt="rodillo"> 
+                                <p class="t-prod">RODILLO - 23CM</p>
+                                <p class="t-prod precio">$449</p>
+                            </li>
+                            
+                            <li class="imgs-productos">
+                                <img src="../img/guantes.png" class="radio" alt="guantes"> 
+                                <p class="t-prod">GUANTES DE TEJIDO NEGRO</p>
+                                <p class="t-prod precio">$99</p>
+                            </li>
 
-                        <li class="imgs-productos">
-                            <img src="../img/rodillo.png" class="radio" alt="rodillo"> 
-                            <p class="t-prod">RODILLO - 23CM</p>
-                            <p class="t-prod precio">$449</p>
-                        </li>
-                        
-                        <li class="imgs-productos">
-                            <img src="../img/guantes.png" class="radio" alt="guantes"> 
-                            <p class="t-prod">GUANTES DE TEJIDO NEGRO</p>
-                            <p class="t-prod precio">$99</p>
-                        </li>
+                            <li class="imgs-productos">
+                                <img src="../img/pincel.png" class="radio" alt="pincel"> 
+                                <p class="t-prod">PINCEL ESPECIAL -Nº22</p>
+                                <p class="t-prod precio">$299</p>
+                            </li>
 
-                        <li class="imgs-productos">
-                            <img src="../img/pincel.png" class="radio" alt="pincel"> 
-                            <p class="t-prod">PINCEL ESPECIAL -Nº22</p>
-                            <p class="t-prod precio">$299</p>
-                        </li>
+                            <li class="imgs-productos">
+                                <img src="../img/lija.png" class="radio" alt="lija"> 
+                                <p class="t-prod">LIJA AL AGUA GR.400</p>
+                                <p class="t-prod precio">$39</p>
+                            </li> -->
 
-                        <li class="imgs-productos">
-                            <img src="../img/lija.png" class="radio" alt="lija"> 
-                            <p class="t-prod">LIJA AL AGUA GR.400</p>
-                            <p class="t-prod precio">$39</p>
-                        </li>
-
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
             </div>
+            <div class="carrito" id="carrito-seccion">
+                <div class="carrito-titulo">
+                    <h2 class="carrito-nombre">Carrito </h2>
+                    <button class="carrito-cerrar" onclick="ocultarCarrito()">Cerrar</button>
+                </div>
+                <div >
+                    <div id="carrito-vacio">
+                        <h4 class="h1-nombre">El carrito se encuentra Vacio</h4>
+                    </div>
+                    <div id="final-compra">
+                        <h4 class="h1-nombre">Gracias por su Compra!</h4>
+                    </div>
+                    <div class="carrito-productos" id="carrito-productos">
+                        
+                    </div>
+                    <div class="carrito-total" id="carrito-total-div">
+                        <h2 class="h1-nombre">Total: <span id="carrito-total">$0</span></h2>
+                    </div>
+                    <button id="vaciar" class="input finalizar-compra" id="finalizar-compra">Finalizar compra</button>
+                </div>
+            </div> 
         </div>
     </main>
 
